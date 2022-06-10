@@ -49,6 +49,6 @@ public class countingSort {
     public static void main(String[] args) {
         int[] num = {-3,2,5,6,4,7,9,8,3,2,1};
         Sort sort = new Sort();
-        sort.countingSort(num); //prints out -9 -3 0 1 2 2 3 5 6 7 8 9
+        sort.countingSort(num); //prints out -3 1 2 2 3 5 6 7 8 9
     }
 }
