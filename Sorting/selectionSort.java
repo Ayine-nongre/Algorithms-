@@ -1,5 +1,5 @@
 class Sort {
-    public static void selectionSort(int[] x) {
+    public void selectionSort(int[] x) {
         int min = 0, i, j;
         for (i = 0; i < x.length; i++) {
             min = i;
