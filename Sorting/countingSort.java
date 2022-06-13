@@ -1,5 +1,5 @@
 class Sort{
-    public static void countingSort(int[] x){
+    public void countingSort(int[] x){
         int maxNum = 1,minNum = 0,diff = 0,count;
         for(int i : x){
             if(i > maxNum) maxNum = i;
