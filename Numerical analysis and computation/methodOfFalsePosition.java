@@ -2,17 +2,14 @@ class NumericalMethods{
     int count = 0;
     double root = 0;
     public double methodOfFalsePosition(double a,double b,double epsilon){
-        double zerosOfA,zerosOfB,zerosOfRoot;
         double previousRoot = 0;
         if(count > 0)
             previousRoot = root;
-        zerosOfA = zerosOfFunction(a);
-        zerosOfB = zerosOfFunction(b);
-        root = ((a * zerosOfB) - (b * zerosOfA))/(zerosOfB - zerosOfA);
-        zerosOfRoot = zerosOfFunction(root);
+
+        root = ((a * func(b)) - (b * func(a)))/(func(b) - func(a));
         if(Math.abs(root - previousRoot) <= epsilon )
             return root;
-        else if((zerosOfA * zerosOfRoot) < 0){
+        else if((func(a) * func(root)) < 0){
             count++;
             return methodOfFalsePosition(a,root,epsilon);
         }
@@ -22,10 +19,8 @@ class NumericalMethods{
         }
     }
 
-    private double zerosOfFunction(double x) {
-        double zeros;
-        zeros = (Math.pow(x, 2) + (2 * x) - 3);
-        return zeros;
+    private double func(double x) {
+        return (Math.pow(x, 2) + (2 * x) - 3);
     }
 }
 

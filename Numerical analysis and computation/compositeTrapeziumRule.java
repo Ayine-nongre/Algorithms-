@@ -1,19 +1,17 @@
 class NumericalIntegration{
     public double compositeTrapeziumRule(double h,double upperLimit,double lowerLimit,int N){
         double area = 0,subIntervalAreas = 0;
-        area += zerosOfFunction(lowerLimit);
-        area += zerosOfFunction(upperLimit);
+        area += func(lowerLimit);
+        area += func(upperLimit);
         for (int i = 1; i < N; i++)
-            subIntervalAreas += zerosOfFunction(lowerLimit + (i*h));
+            subIntervalAreas += func(lowerLimit + (i*h));
         area += 2*(subIntervalAreas);
         area = (h/2)*(area);
         return area;
     }
 
-    private double zerosOfFunction(double x){
-        double zeros;
-        zeros = 2 * Math.pow(x,2);
-        return zeros;
+    private double func(double x){
+        return 2 * Math.pow(x,2);
     }
 }
 

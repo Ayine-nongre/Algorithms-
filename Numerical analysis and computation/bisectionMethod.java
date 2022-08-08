@@ -1,13 +1,11 @@
 class NumericalMethods{
     public double bisectionMethod(double a,double b,double epsilon,int count){
         count -= 1;
-        double c = (a + b)/2,zerosOfA,zerosOfC;
+        double c = (a + b)/2;
         if(count > 0){
-            zerosOfA = zerosOfFunction(a);
-            zerosOfC = zerosOfFunction(c);
             if((b-c) <= epsilon)
                 return c;
-            else if((zerosOfA * zerosOfC) <= 0)
+            else if((func(a) * func(c)) <= 0)
                 return bisectionMethod(a,c,epsilon,count);
             else
                 return bisectionMethod(c,b,epsilon,count);
@@ -16,10 +14,8 @@ class NumericalMethods{
             return c;
     }
 
-    private double zerosOfFunction(double x){
-        double zeros;
-        zeros = Math.pow(x,2) + (2 * x) - 3;
-        return zeros;
+    private double func(double x) {
+        return (Math.pow(x, 2) + (2 * x) - 3);
     }
 }
 
